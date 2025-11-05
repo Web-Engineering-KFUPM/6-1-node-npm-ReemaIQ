@@ -101,7 +101,6 @@ Example structure:
 
 if (!isValidOperation(operation)) {
     console.log("Invalid operation. Use: add, subtract, multiply, or divide");
-    return;
 }
 
 const nums = parseNumbers(numbers);
@@ -234,3 +233,8 @@ After completing all TODOs, test your calculator:
   Expected output: Invalid operation. Use: add, subtract, multiply, or divide
 
 */
+ //debugging
+// console.log("Raw input:", numbers);
+// console.log("Parsed numbers:", nums);
+// console.log("Type of nums:", typeof nums);
+// console.log("Is Array?", Array.isArray(nums));
