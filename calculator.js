@@ -39,7 +39,14 @@ Example:
   import { add, subtract } from "./utils/operations.js";
   import { parseNumbers, isValidOperation } from "./utils/parser.js";
   import _ from "lodash";
+*/
 
+import {add, substract} from "./utils/operations.js"
+import { parseNumbers, isValidOperation } from "./utils/parser.js";
+import _ from "lodash";
+
+
+/*
 ===================================================================
 TODO 2: Parse Command Line Arguments (in calculator.js)
 ===================================================================
@@ -56,7 +63,12 @@ Hints:
 Example:
   const operation = process.argv[2];
   const numbers = process.argv.slice(3);
+*/
 
+const operation = process.argv[2];
+const numbers = process.argv.slice(3);
+
+/*
 ===================================================================
 TODO 3: Validate Input and Calculate (in calculator.js)
 ===================================================================
