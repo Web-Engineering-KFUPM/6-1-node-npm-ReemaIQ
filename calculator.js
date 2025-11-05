@@ -133,15 +133,39 @@ Goal: Implement functions that perform mathematical operations on arrays of numb
 TODO 4.1: Add Function
 - Calculate the sum of all numbers in the array
 - Use Array.reduce() or a loop
+*/
+//export function add(nums) {
+//     for (let i = 0; i < nums.length; i++) {
+//         result += nums[i];
+//     }
+// }
 
+export function add(numbers) {
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+/*
 TODO 4.2: Subtract Function
 - Start with the first number, subtract all others
 - Example: subtract([10, 3, 2]) → 10 - 3 - 2 = 5
+*/
 
+export function subtract(numbers) {
+    // start with the first number, subtract the rest
+    return numbers.slice(1).reduce((result, num) => result - num, numbers[0]);
+}
+
+/*
 TODO 4.3: Multiply Function
 - Multiply all numbers together
 - Example: multiply([2, 3, 4]) → 2 * 3 * 4 = 24
+*/
 
+export function multiply(numbers) {
+    return numbers.reduce((result, num) => result * num, 1);
+}
+
+/*
 TODO 4.4: Divide Function
 - Start with the first number, divide by all others
 - Example: divide([20, 2, 5]) → 20 / 2 / 5 = 2
@@ -155,7 +179,18 @@ Example for add:
   export function add(numbers) {
     return numbers.reduce((sum, num) => sum + num, 0);
   }
+*/
 
+export function divide(numbers) {
+    return numbers.slice(1).reduce((result, num) => {
+        if (num === 0) {
+            throw new Error("Division by zero is invalid");
+        }
+        return result / num;
+    }, numbers[0]);
+}
+
+/*
 ===============================================================
 TODO 5: Create Parser Functions Using Lodash (in utils/parser.js)
 ===============================================================
@@ -176,7 +211,16 @@ Example:
     const numbers = _.map(input, (str) => Number(str));
     return _.compact(numbers);
   }
+*/
 
+import _ from "lodash";
+export function parseNumbers(input) {
+    // Convert to numbers and remove invalid entries
+    const numbers = _.map(input, (str) => Number(str));
+    return _.compact(numbers);
+}
+
+/*
 TODO 5.2: Validate Operation Function
 - Check if the operation is one of: "add", "subtract", "multiply", "divide"
 - Use lodash's _.includes() to check if the operation is in the valid operations array
@@ -190,7 +234,14 @@ Example:
     const validOps = ["add", "subtract", "multiply", "divide"];
     return _.includes(validOps, operation);
   }
+*/
 
+export function isValidOperation(operation) {
+    const validOps = ["add", "subtract", "multiply", "divide"];
+    return _.includes(validOps, operation);
+}
+
+/*
 ===============================================================
 Testing Your Calculator
 ===============================================================
