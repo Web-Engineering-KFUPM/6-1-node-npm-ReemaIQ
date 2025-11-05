@@ -41,7 +41,7 @@ Example:
   import _ from "lodash";
 */
 
-import {add, substract} from "./utils/operations.js"
+import { add, subtract, multiply, divide } from "./utils/operations.js";
 import { parseNumbers, isValidOperation } from "./utils/parser.js";
 import _ from "lodash";
 
@@ -140,20 +140,12 @@ TODO 4.1: Add Function
 //     }
 // }
 
-export function add(numbers) {
-    return numbers.reduce((sum, num) => sum + num, 0);
-}
-
 /*
 TODO 4.2: Subtract Function
 - Start with the first number, subtract all others
 - Example: subtract([10, 3, 2]) → 10 - 3 - 2 = 5
 */
 
-export function subtract(numbers) {
-    // start with the first number, subtract the rest
-    return numbers.slice(1).reduce((result, num) => result - num, numbers[0]);
-}
 
 /*
 TODO 4.3: Multiply Function
@@ -161,9 +153,6 @@ TODO 4.3: Multiply Function
 - Example: multiply([2, 3, 4]) → 2 * 3 * 4 = 24
 */
 
-export function multiply(numbers) {
-    return numbers.reduce((result, num) => result * num, 1);
-}
 
 /*
 TODO 4.4: Divide Function
@@ -181,14 +170,6 @@ Example for add:
   }
 */
 
-export function divide(numbers) {
-    return numbers.slice(1).reduce((result, num) => {
-        if (num === 0) {
-            throw new Error("Division by zero is invalid");
-        }
-        return result / num;
-    }, numbers[0]);
-}
 
 /*
 ===============================================================
@@ -213,13 +194,6 @@ Example:
   }
 */
 
-import _ from "lodash";
-export function parseNumbers(input) {
-    // Convert to numbers and remove invalid entries
-    const numbers = _.map(input, (str) => Number(str));
-    return _.compact(numbers);
-}
-
 /*
 TODO 5.2: Validate Operation Function
 - Check if the operation is one of: "add", "subtract", "multiply", "divide"
@@ -236,10 +210,6 @@ Example:
   }
 */
 
-export function isValidOperation(operation) {
-    const validOps = ["add", "subtract", "multiply", "divide"];
-    return _.includes(validOps, operation);
-}
 
 /*
 ===============================================================
